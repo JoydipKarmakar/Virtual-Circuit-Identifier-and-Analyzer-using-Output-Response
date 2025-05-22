@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Circuit Identifier and Analyzer</title>
+    <!-- Path relative to index.html -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Virtual Circuit Identifier and Analyzer using Output Response</h1>
+        <p>Analyze electronic circuits based on their simulated output signals.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#application">Application</a></li>
+            <li><a href="#about">About Project</a></li>
+            <li><a href="#workflow-info">Workflow</a></li>
+            <li><a href="#capabilities-info">Capabilities</a></li>
+            <li><a href="#technologies-info">Technologies</a></li>
+            <!-- Add more links as needed -->
+        </ul>
+    </nav>
+
+    <main>
+        <section id="application">
+            <h2>Circuit Analysis Application</h2>
+
+            <div class="app-container">
+                <div class="input-panel">
+                    <h3>Input Circuit & Signal</h3>
+
+                    <div class="input-group">
+                        <label for="circuit-type">Select Basic Circuit Type (Mock):</label>
+                        <select id="circuit-type">
+                            <option value="rlc-series">Series RLC</option>
+                            <option value="rc-lowpass">RC Low-Pass Filter</option>
+                            <option value="rl-highpass">RL High-Pass Filter</option>
+                            <option value="unknown">Unknown Circuit (Simulate Analysis)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="netlist">Or Enter Circuit Netlist (Mock Input):</label>
+                        <textarea id="netlist" rows="6" placeholder="e.g., V1 1 0 SIN(0 5 1k)&#x0A;R1 1 2 1k&#x0A;C1 2 0 1u&#x0A;.tran 1m 10m&#x0A;.end"></textarea>
+                    </div>
+
+                     <div class="input-group">
+                        <label for="signal-type">Input Signal Type (Mock):</label>
+                        <select id="signal-type">
+                            <option value="step">Step</option>
+                            <option value="sine">Sine</option>
+                            <option value="pulse">Pulse</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signal-params">Signal Parameters (Mock):</label>
+                        <input type="text" id="signal-params" placeholder="e.g., Amplitude: 5V, Freq: 1kHz">
+                    </div>
+
+                    <button id="analyze-button">Analyze Circuit</button>
+                </div>
+
+                <div class="results-panel">
+                    <h3>Analysis Results</h3>
+
+                    <div id="results-content">
+                        <p>Click "Analyze Circuit" to see results.</p>
+                        <div id="identified-type"></div>
+                        <div id="estimated-params"></div>
+                        <div id="analysis-plots">
+                            <!-- Plot images will be inserted here by JavaScript -->
+                        </div>
+                        <div id="analysis-details"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informational Sections (similar to the static site, linked from nav) -->
+        <section id="about">
+            <h2>About the Project (Objective)</h2>
+            <ul>
+                <li>The main aim is to identify the type of a given electronic circuit using its output response.</li>
+                <li>To analyze the behavior and characteristics of the identified circuit.</li>
+                <li>The system will also aim to provide insights for circuit design, analysis, and troubleshooting.</li>
+                <li>A potential application is aiding students and engineers in understanding circuit behavior without direct access to internal components.</li>
+            </ul>
+        </section>
+
+        <section id="workflow-info">
+             <h2>System Workflow</h2>
+             <ol>
+                 <li><strong>Input:</strong> Circuit netlist/description and input signal (e.g., step, sine, pulse).</li>
+                 <li><strong>Simulation:</strong> Simulate the circuit with the given input using simulation software.</li>
+                 <li><strong>Output Response Capture:</strong> Record the output signal data from the simulation.</li>
+                 <li><strong>Feature Extraction:</strong> Extract relevant features from the output response (e.g., rise time, fall time, frequency components, damping ratio).</li>
+                 <li><strong>Analysis/Identification:</strong> Use extracted features and potentially machine learning models to identify the circuit type and parameters.</li>
+                 <li><strong>Output:</strong> Display the identified circuit type, estimated parameters, and potentially visualizations of the analysis.</li>
+             </ol>
+         </section>
+
+         <section id="capabilities-info">
+             <h2>System Capabilities</h2>
+             <ul>
+                 <li>Identify basic passive circuits (RLC combinations).</li>
+                 <li>Analyze frequency and time domain responses.</li>
+                 <li>Estimate circuit parameters (R, L, C values).</li>
+                 <li>Potential for fault detection based on deviations from expected response (Optional).</li>
+                 <li>Potential for comparing responses of different circuit configurations (Optional).</li>
+             </ul>
+         </section>
+
+         <section id="technologies-info">
+             <h2>Tools & Technologies</h2>
+             <ul>
+                 <li>Python</li>
+                 <li>Relevant Libraries: NumPy, SciPy, Matplotlib, scikit-learn, TensorFlow / PyTorch (optional)</li>
+                 <li>Circuit Simulation Software (e.g., LTspice, Multisim, or custom simulator)</li>
+             </ul>
+         </section>
+
+         <!-- Add other sections from the mind map as needed -->
+         <section id="modalities-info">
+             <h2>Underlying Modalities</h2>
+             <p>The analysis can be performed using:</p>
+             <ul>
+                 <li>Time Domain Analysis: Analyzing the transient and steady-state response over time.</li>
+                 <li>Frequency Domain Analysis: Analyzing the circuit's response to different frequencies (e.g., Bode plots, frequency spectrum).</li>
+             </ul>
+         </section>
+
+         <section id="analysis-logic-info">
+              <h2>Analysis Logic (Concepts)</h2>
+              <p>Conceptual steps involved in the analysis:</p>
+              <ul>
+                  <li><strong>Data Preprocessing:</strong> Loading data, noise reduction, normalization.</li>
+                  <li><strong>Feature Extraction:</strong> Calculating time-domain and frequency-domain features.</li>
+                  <li><strong>Model Training/Inference:</strong> Using supervised learning models trained on simulated data.</li>
+              </ul>
+          </section>
+
+          <section id="data-structure-info">
+             <h2>Proposed Data Structure Logic</h2>
+             <ul>
+                 <li><strong>Input Data Format:</strong> Circuit Netlist/Description, Input Signal Parameters.</li>
+                 <li><strong>Output Data Format:</strong> Identified Circuit Type, Estimated Circuit Parameters, Analysis Plots.</li>
+             </ul>
+         </section>
+
+         <section id="advanced-features-info">
+             <h2>Advanced Features (Optional)</h2>
+             <ul>
+                 <li>Graphical User Interface (GUI).</li>
+                 <li>Real-time analysis capability.</li>
+                 <li>More sophisticated fault diagnosis.</li>
+                 <li>Integration with physical circuit measurement hardware.</li>
+             </ul>
+         </section>
+
+         <section id="deliverables-info">
+             <h2>Deliverables</h2>
+             <ul>
+                 <li>A working prototype.</li>
+                 <li>Comprehensive documentation.</li>
+                 <li>A presentation and report.</li>
+             </ul>
+         </section>
+
+         <section id="next-steps-info">
+             <h2>Next Steps</h2>
+             <ul>
+                 <li>Refine algorithms.</li>
+                 <li>Expand identifiable circuit types.</li>
+                 <li>Improve user interface.</li>
+                 <li>Optimize performance.</li>
+                 <li>Explore hardware integration.</li>
+             </ul>
+         </section>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Virtual Circuit Identifier Project. All rights reserved.</p>
+    </footer>
+
+    <!-- Path relative to index.html -->
+    <script src="js/script.js"></script>
+</body>
+</html>

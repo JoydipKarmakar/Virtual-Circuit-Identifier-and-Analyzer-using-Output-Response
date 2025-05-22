@@ -1,0 +1,253 @@
+/* (Paste the full CSS code from the previous response here) */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    background-color: #1a1a1a; /* Dark background */
+    color: #e0e0e0; /* Light text */
+    padding-top: 60px; /* Space for fixed header/nav */
+}
+
+header {
+    background-color: #282828; /* Slightly lighter dark */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+nav {
+    background-color: #333; /* Darker grey for nav */
+    padding: 0.5rem 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 90px; /* Position below header */
+    left: 0;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #4CAF50; /* Green highlight on hover */
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 160px auto 20px auto; /* Space for fixed header/nav, center content */
+}
+
+section {
+    background-color: #282828; /* Section background */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+section h2 {
+    color: #FFC107; /* Yellow/Orange highlight for headings */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #4CAF50; /* Green underline */
+    padding-bottom: 5px;
+}
+
+/* Application Specific Styles */
+.app-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow panels to stack on small screens */
+    gap: 20px; /* Space between panels */
+}
+
+.input-panel, .results-panel {
+    background-color: #3a3a3a; /* Slightly lighter background for panels */
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1; /* Allow panels to grow */
+    min-width: 300px; /* Minimum width before wrapping */
+}
+
+.input-panel h3, .results-panel h3 {
+    color: #4CAF50; /* Green heading for panels */
+    margin-bottom: 15px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.input-group select,
+.input-group textarea,
+.input-group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #444;
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+
+.input-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+button#analyze-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button#analyze-button:hover {
+    background-color: #388E3C; /* Darker green on hover */
+}
+
+#results-content p {
+    font-style: italic;
+    color: #aaa;
+}
+
+#identified-type, #estimated-params, #analysis-details {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed #555;
+}
+
+#identified-type strong, #estimated-params strong {
+    color: #FFC107; /* Yellow/Orange for labels */
+}
+
+#analysis-plots {
+    margin-top: 20px;
+    text-align: center; /* Center plot images */
+}
+
+#analysis-plots img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border: 1px solid #555;
+    border-radius: 4px;
+}
+
+
+/* General Section Styles (from previous version) */
+section ul, section ol {
+    margin-left: 20px;
+}
+
+section ul li, section ol li {
+    margin-bottom: 10px;
+}
+
+section ul ul { /* Style for nested lists */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #282828;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    main {
+        margin-top: 200px; /* Adjust margin for smaller screens */
+        padding: 10px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .app-container {
+        flex-direction: column; /* Stack panels vertically */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0.8rem 0;
+    }
+    header h1 {
+        font-size: 1.2rem;
+    }
+    nav {
+        top: 70px; /* Adjust nav position */
+    }
+    main {
+        margin-top: 180px; /* Adjust main content position */
+    }
+}
